@@ -22,10 +22,12 @@ $con = mysqli_connect('localhost','root','','practice')
 <h4>To-Date:</h4>
 <input type="date" name="to_date" size="30">
 
+<input type="submit" name="" value="Submit" />
+
 <h5>Value:</h5>
 <input type="text" name="value" size="30">
 
-<input type="submit" name="insert_post" value="Submit" />
+
 
 </form>
 
