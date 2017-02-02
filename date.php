@@ -15,7 +15,7 @@ $con = mysqli_connect("localhost", "root", "","practice");
 <body>
 
 
-<form name="form1" action="#" method="post">
+<form name="form1" action="" method="post">
 
 		<h4>From-date:</h4>
 		<select name="strt">
@@ -49,9 +49,11 @@ $con = mysqli_connect("localhost", "root", "","practice");
 
 		</select></br></br>
 
-	<input type="submit" name="insert_post" value="Submit" />
+	<input type="submit" name="submit" value="Submit" />
 
 </form>
+
+
 <h4>List of Values</h4>
 
 
@@ -61,31 +63,43 @@ $con = mysqli_connect("localhost", "root", "","practice");
 			<th>Value</th>
 			
 		</tr>
-		<tr>
+		
 		<?php
-		if ($_POST) {
-		# code...
-		if ($_POST['strt'] < $_POST['end']) {
-			# code...
+		if(isset($_POST['submit']))
+		 {
 			$str = $_POST['strt'];
-			$end = $_POST['end'];
-			$result1 = mysqli_query($con,"SELECT * FROM datelist WHERE date_now >= $str && date_now <= $end");
-			while($row = mysqli_fetch_array($result1))
-			{
-			?>
-			<td><?php echo $row['date'];?></td>
+			$end = $_POST['end']; 
+		
+		if ($str < $end) {
+			
+			if (!$con) {
+				die("Connection failed: " . mysqli_connect_error());
+				}
+				
+				$sql = "SELECT * FROM datelist WHERE date_now >= '$str' && date_now <= '$end'";
+				
+				$result = mysqli_query($con, $sql); //query the databasee and save all the rows in the $result var
 
-			<?php
+				if (mysqli_num_rows($result) > 0) { //count the no of rows returned
+    // output data of each row
+					while($row = mysqli_fetch_assoc($result)) { ?>
+					<tr>
+					<td> <?php echo 
+					$row["date_now"]; ?></td>
+					
+					<td>
+						<?php echo  $row["value"]; ?> </td></tr>;<?php
+							}
 			}
 		}
+		
+		else {
+		echo "please select the date";
+	}
 
 	}	
-			?>
-		</tr>
-		
-		
-
 	
+			?>
 	</table>	
 
 
