@@ -1,0 +1,34 @@
+Minimum system requirement
+
+Operating System - Windows 7 64bits
+CPU - Pentium 4
+RAM - 512 MB 
+Web browser - Google chrome, Mozilla firefox
+System version - 1.3
+
+To Run in WAMPP--
+1. Start WAMPP server.
+2. Go to c drive and enter wampp.
+3. Go to www folder and paste the code.
+4. Open a web browser.
+5. Type http://localhost:8080/date.php.
+
+To Run in XAMPP --
+1. Start XAMPP server.
+2. Go to c drive and enter xampp folder.
+3. Enter htdocs folder and paste the code there.
+4. Go to the web browser and enter http://localhost/date.php.
+
+Create a database --
+1. Before runing the code type http://localhost/phpmyadmin and create a database named practise.
+2. Create a table datalist with 3 columns consisting of id, date_now and value.
+3. Insert respective datas for date_now and value.
+
+When the program is executed --
+1. There will be two drop down; From-date and To-date.
+2. From the dropdown select a date for each tab.
+3. From-date must be smaller than To-date for the system to work.
+4. After selecting the dates, press submit.
+5. With the date submitted, the values along with their respective date will be generated from the database.
+
+
